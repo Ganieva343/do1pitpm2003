@@ -1,22 +1,23 @@
 from flask import Flask
 
-
 app = Flask(__name__)
 
 
-@app.route('/H')
-def index():
-    return 'Hello Flask'
+#@app.route('/')
+#def index():
+#    return 'Hello Flask'
 
 
-@app.route('/user//')
+@app.route('/user/<int:user_id>/')
 def user_profile(user_id):
     return "Profile page of user #{}".format(user_id)
 
 
-@app.route('/books//')
+@app.route('/books/<string:genre>/')
 def books(genre):
     return "All Books in {} category".format(genre)
+
+
 
 
 if __name__ == "__main__":
